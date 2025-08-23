@@ -1,0 +1,203 @@
+<resources>
+    <string name="app_name">LifeSet</string>
+    <string name="str_welcome_back">Welcome Back</string>
+    <string name="str_sign_continue">Sign in to Continue</string>
+    <string name="str_email_address">Email Address</string>
+    <string name="str_phone_number">Phone Number</string>
+    <string name="str_password">Password</string>'
+    <string name="str_forgot_password">Forgot Password</string>
+
+    <string name="str_previous">Previous</string>
+    <string name="str_next">Next</string>
+
+    <string name="str_submit">Submit</string>
+    <string name="str_update_profile">Update Profile</string>
+    <string name="str_update_profile_message">For a better experience, please add your photo, and complete your education details and skills.</string>
+    <string name="str_help">Need Help? Get Instant</string>
+    <string name="str_support_whatsapp">Support on WhatsApp!</string>
+
+
+    <string name="str_update_information">Update Information</string>
+
+    <string name="str_create_new_account">Create a New Account</string>
+    <string name="str_dont_details">If don\'t have details</string>
+    <string name="str_list_your_favourite">List Your Institute</string>
+    <string name="str_not_find_list">Not find in our list?</string>
+    <string name="str_institute_name">Institute Name</string>
+    <string name="str_request_for_otp">Request For OTP</string>
+    <string name="str_terms_conditions">I have accepted all terms and conditions <u>Click here</u></string>
+    <string name="dont_account">Create a new Account\n if you don\'t have</string>
+    <string name="str_already_have_an_account">Already have an Account?</string>
+    <string name="str_login">Login</string>
+
+    <string name="str_my_space">My Space</string>
+
+    <string name="str_edit_profile_details">Edit Profile Details</string>
+
+    <string name="str_activate_account_des">Need Help? Get Instant Support on Whatsapp! <b>Support on WhatsApp</b></string>
+
+    <string name="str_welcome">Hi, Welcome</string>
+    <string name="str_activate_your_account">Active Your Account</string>
+
+    <string name="str_share">Share</string>
+
+    <string name="str_old_password">Old Password</string>
+    <string name="str_new_password">New Password</string>
+    <string name="str_confirm_new_password">Confirm New Password</string>
+
+    <string name="str_select_course">Select Course</string>
+    <string name="str_select_year">Select Year</string>
+
+    <string name="str_create_your_freelancer_profile">Create Your Freelancer Profile</string>
+    <string name="str_update_your_freelancer_profile">Update Your Freelancer Profile</string>
+    <string name="str_view_profile_card">View Your Profile Card</string>
+    <string name="str_note">Note:</string>
+    <string name="str_note_desc">This is a public preview of your profile visible to others in the community.</string>
+
+    <string name="str_jobs">Jobs</string>
+    <string name="str_internship">Internships</string>
+    <string name="str_exams">Govt Exams</string>
+    <string name="str_events">Events</string>
+    <string name="str_gk">Gk</string>
+    <string name="str_gk_ca">CA &amp; GK</string>
+    <string name="str_test_preparation">Test</string>
+    <string name="str_personality">Personality</string>
+
+    <string name="str_event">Event</string>
+    <string name="str_pincode">Pincode</string>
+    <string name="str_state">State</string>
+    <string name="str_district">District</string>
+
+    <string name="str_exam">Exam</string>
+    <string name="str_exam_level">Exam Level</string>
+    <string name="str_name_of_post">Name Of Post</string>
+    <string name="str_1st_announcement_date">1st Announcement Date</string>
+    <string name="str_last_date_form_filling">Last Date of Form Filling</string>
+    <string name="str_exam_dates">Exam Date</string>
+    <string name="str_fees">Fees</string>
+    <string name="str_vacancy_seats">Vacancy/Seats</string>
+    <string name="str_age_limit">Age Limit</string>
+
+
+    <string name="str_job_title">Job Title   </string>
+    <string name="str_company_name">Company Name   </string>
+    <string name="str_industry">Industry   </string>
+    <string name="str_functions">Functions   </string>
+    <string name="str_role">Role   </string>
+    <string name="str_past_experience">Past Experience   </string>
+    <string name="str_job_type">Job Type   </string>
+    <string name="str_clients_to_manage">Clients to Manage   </string>
+    <string name="str_capacity">Capacity   </string>
+    <string name="str_yearly_salary">Yearly Salary   </string>
+    <string name="str_working_days">Working Days   </string>
+    <string name="str_work_time">Work Time   </string>
+    <string name="str_job_applied">Job Applied   </string>
+
+    <string name="str_applied_jobs">Applied Jobs</string>
+    <string name="str_freelancer_jobs">Freelancer Jobs</string>
+
+
+    <string name="str_verification_code">Verification Code</string>
+    <string name="str_code_desc">We have send the 6 digit verification code on your mobile number</string>
+    <string name="str_enter_digit_pin">Enter 6 digit pin</string>
+    <string name="str_verify">Verify &amp; Proceed</string>
+    <string name="str_did_not_resend_otp">Did not received OTP</string>
+    <string name="str_resend_now">Resend Now!</string>
+
+    <string name="str_category">Category</string>
+    <string name="str_religion">Religion</string>
+
+    <string name="open_drawer">Open drawer</string>
+    <string name="close_drawer">Close drawer</string>
+    <string name="str_home">Home</string>
+    <string name="str_profile">My Profile</string>
+    <string name="str_aboutus">About Us</string>
+    <string name="str_termsconditions">Terms &amp; Conditions</string>
+    <string name="str_privarcy_policy">Privacy Policy</string>
+    <string name="str_logout">Logout</string>
+    <string name="str_change_password">Change Password</string>
+    <string name="str_student_list">Student List</string>
+    <string name="str_invite_list">My Invites</string>
+    <string name="str_my_network">My Networks</string>
+    <string name="str_my_chats">My Chats</string>
+    <string name="str_chat_history">Chat History</string>
+    <string name="str_my_profile">My Profile</string>
+    <string name="str_send_invite">Send Invite</string>
+    <string name="str_interest">Interest:</string>
+    <string name="str_studying_at">Studying at</string>
+    <string name="str_message">Message</string>
+    <string name="str_student_connect">Student Connect</string>
+
+    <string name="str_my_card">My Card</string>
+
+    <string name="str_update">Update</string>
+    <string name="str_type_your_freelancer_skills">Type your freelancer skills...</string>
+    <string name="str_list_the_skills">List the skills</string>
+    <string name="str_youre_great_at">you\'re great at</string>
+    <string name="str_your_freelancer_profile">Your Freelancer Profile</string>
+
+    <string name="str_notifications">Notifications</string>
+
+    <string name="str_personal_information">Personal Information</string>
+
+    <string name="str_home_town">HomeTown Address</string>
+
+    <string name="str_education_detail">Education Details</string>
+
+    <string name="str_skills">Skills</string>
+
+    <string name="str_apply_jobs">Applied Jobs</string>
+
+    <string name="str_technical_skills">Technical Skills</string>
+    <string name="str_proffessional_skills">Professional Skills</string>
+    <string name="str_soft_skills">Soft Skills</string>
+    <string name="str_interest_hobbies">Interest Hobbies</string>
+
+    <string name="str_freelancer">Freelancer</string>
+
+    <string name="str_refer_your_friend">Refer Your Friends</string>
+    <string name="str_referal_list">Referral List</string>
+
+    <string name="str_camera">Camera</string>
+    <string name="str_galery">Gallery</string>
+    <string name="str_cancel">Cancel</string>
+
+    <string name="networks">Networks</string>
+    <string name="invites">Invites</string>
+    <string name="connects">Connects</string>
+    <string name="chats">Chats</string>
+
+    <string name="str_opportunities">Opportunities &amp; Events</string>
+    <string name="str_govt_vacancies">Govt Vacancies</string>
+    <string name="str_collage_events">College Events</string>
+    <string name="str_institutes">Explore Institutes</string>
+
+    <string name="str_learn_grow">Learn &amp; Grow</string>
+    <string name="str_daily_digest">Daily Digest</string>
+    <string name="str_current_affairs">Current Affairs</string>
+    <string name="str_general_studies">General Studies</string>
+
+    <string name="str_career_work">Career &amp; Work</string>
+    <string name="str_fresher_jobs">Fresher Jobs</string>
+
+    <string name="str_lifeset_desc">The vision is to help youths &amp; students in their early stage of career building</string>
+
+    <string name="str_networking">Networking</string>
+
+    <string name="str_absolutly_incorrect">बिलकुल गलत  <b>Absolutely Incorrect</b></string>
+    <string name="str_partially_incorrect">कुछ हद तक ग़लत  <b>Partially Incorrect</b></string>
+    <string name="str_neutral">निष्पक्ष  <b>Neutral</b></string>
+    <string name="str_partially_correct">कुछ हद तक सही <b>Partially Correct</b></string>
+    <string name="str_absolutely_correct">बिलकुल सही  <b>Absolutely Correct</b></string>
+    <string name="abcd">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,./1234567890@:&amp;$*+-_=!#/?()[]</string>
+
+
+    <string name="str_error_valid_phone_number">Please enter valid phone number</string>
+    <string name="str_error_email_address">Please enter email address</string>
+    <string name="str_error_valid_email_address">Please enter valid email address</string>
+    <string name="str_error_password">Please enter password</string>
+    <string name="str_error_internet_connections">Please check your internet connections</string>
+    <string name="str_profile_card_note">This is a public preview of your profile visible to others in the community.</string>
+    <string name="str_create_profile_note">This information helps showcase your skills and can boost your chances of getting freelancing work.</string>
+
+</resources>

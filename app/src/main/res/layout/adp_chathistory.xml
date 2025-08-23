@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:visibility="visible"
+            android:id="@+id/rrSender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_rectangle_yellow"
+            android:padding="@dimen/_12sdp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:id="@+id/tvSenderDate"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:id="@+id/tvSenderName"
+                android:layout_below="@id/tvSenderDate"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"/>
+
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rrReceiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/small_rectangle_grey"
+            android:padding="@dimen/_12sdp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/tvReceiverDate"
+                android:fontFamily="@font/inter_regular"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/black"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:id="@+id/tvReceiverName"
+                android:layout_below="@id/tvReceiverDate"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/black"/>
+
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</layout>

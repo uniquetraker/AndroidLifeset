@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.app.lifeset.model.JobModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/rectangle_grey"
+                android:orientation="vertical"
+                android:padding="@dimen/_2sdp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:paddingTop="@dimen/_1sdp"
+                                android:paddingBottom="@dimen/_1sdp"
+                                android:layout_margin="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:background="@drawable/rectangle_light"
+                                android:fontFamily="@font/inter_bold"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:text="@string/str_jobs"
+                                android:textSize="@dimen/_11sdp" />
+
+
+                            <LinearLayout
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:id="@+id/tvDate"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:text="@{model.dob}"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_12sdp" />
+
+                                <View
+                                    android:layout_width="@dimen/_1sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:background="@android:color/darker_gray" />
+
+                                <ImageView
+                                    android:visibility="gone"
+                                    android:id="@+id/ivShare"
+                                    android:layout_width="@dimen/_15sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/baseline_share_24" />
+
+
+                                <ImageView
+                                    android:id="@+id/ivBookMark"
+                                    android:layout_width="@dimen/_10sdp"
+                                    android:layout_height="@dimen/_10sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_8sdp"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/ic_bookmark" />
+
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="#DDDDDD" />
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvTitle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp"
+                                android:fontFamily="@font/inter_semibold"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/_13sdp" />
+
+
+                        </LinearLayout>
+
+
+
+
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="@dimen/_3sdp"
+                            android:background="#DDDDDD" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:id="@+id/rrLeft"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvCompanyNameTitle"
+                                            android:singleLine="true"
+                                            android:text="@string/str_company_name"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:minLines="2"
+                                            android:text="@string/str_industry"
+                                            android:id="@+id/tvIndustryTitle"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:id="@+id/tvFunctionTitle"
+                                            android:text="@string/str_functions"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="@string/str_role"
+                                            android:id="@+id/tvRoleTitle"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvPastExperienceTitle"
+                                            android:singleLine="true"
+                                            android:text="@string/str_past_experience"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="@string/str_job_type"
+                                            android:id="@+id/tvJobTypeTitle"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:id="@+id/tvClientManageTitle"
+                                            android:text="@string/str_clients_to_manage"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/tvCapacityTitle"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:text="@string/str_capacity"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvYearlySalary"
+                                            android:singleLine="true"
+                                            android:text="@string/str_yearly_salary"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvWorkingDaysTitle"
+                                            android:singleLine="true"
+                                            android:text="@string/str_working_days"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:fontFamily="@font/inter_medium"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvWorkTimeTitle"
+                                            android:singleLine="true"
+                                            android:text="@string/str_work_time"
+                                            android:textColor="@android:color/darker_gray"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+
+                                    </LinearLayout>
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_8sdp"
+                                        android:layout_toEndOf="@id/rrLeft"
+                                        android:orientation="vertical">
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/tvCompanyTitle"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/tvIndustry"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:minLines="2"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/tvFunctions"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvRole"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvPastExperience"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/tvJobType"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:id="@+id/tvClientManage"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvCapacity"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:id="@+id/tvFixedSalary"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:singleLine="true"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvWorkingDays"
+                                            android:singleLine="true"
+                                            android:text="@{model.working_days}"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+
+                                        <com.google.android.material.textview.MaterialTextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/_3sdp"
+                                            android:ellipsize="end"
+                                            android:fontFamily="@font/inter_semibold"
+                                            android:maxLines="1"
+                                            android:id="@+id/tvWorkTime"
+                                            android:singleLine="true"
+                                            android:text="@{model.work_time}"
+                                            android:textColor="@color/black"
+                                            android:textSize="@dimen/_11sdp"
+                                            android:visibility="visible" />
+
+
+                                    </LinearLayout>
+
+
+                                </RelativeLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDescriptionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/inter_semibold"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="Job Details Experience:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/inter_regular"
+                android:maxLines="3"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="visible" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Read More"
+                android:id="@+id/tvReadMore"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="gone" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivAdvertisement"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:visibility="gone" />
+
+
+
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "867657346723",
+    "project_id": "lifeset-2cdb2",
+    "storage_bucket": "lifeset-2cdb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867657346723:android:6c238a3717283105675916",
+        "android_client_info": {
+          "package_name": "com.app.lifeset"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkpvB2uV59zTGjFtn9qQuLjWg0Z_T7dR8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

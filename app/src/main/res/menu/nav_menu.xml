@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/str_home" />
+
+
+    <item
+        android:visible="false"
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_newprofile"
+        android:title="@string/str_my_profile" />
+
+
+    <item
+        android:id="@+id/menu_changepassword"
+        android:icon="@drawable/changepassword"
+        android:title="@string/str_change_password" />
+
+    <item
+        android:visible="false"
+        android:id="@+id/menu_applyjobs"
+        android:icon="@drawable/ic_applyjob"
+        android:title="@string/str_apply_jobs" />
+
+    <item
+        android:visible="false"
+        android:id="@+id/menu_studentList"
+        android:icon="@drawable/ic_studentlist"
+        android:title="Freelancer Jobs" />
+
+    <item
+        android:id="@+id/menu_inviteList"
+        android:icon="@drawable/ic_invite"
+        android:title="@string/str_invite_list"
+        android:visible="false" />
+
+
+    <item
+        android:visible="false"
+        android:id="@+id/menu_network"
+        android:icon="@drawable/ic_network"
+        android:title="Networking" />
+
+    <item
+        android:id="@+id/menu_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="@string/str_my_chats"
+        android:visible="false" />
+
+
+    <item
+        android:id="@+id/menu_aboutus"
+        android:icon="@drawable/ic_aboutus"
+        android:title="@string/str_aboutus" />
+
+    <item
+        android:id="@+id/menu_termsconditions"
+        android:icon="@drawable/termsconditions"
+        android:title="@string/str_termsconditions" />
+
+    <item
+        android:id="@+id/menu_privacypolicy"
+        android:icon="@drawable/ic_privacypolicy"
+        android:title="@string/str_privarcy_policy" />
+
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/str_share" />
+
+
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/logout"
+        android:title="@string/str_logout" />
+
+
+</menu>

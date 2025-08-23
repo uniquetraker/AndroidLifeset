@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".activity.OtpActivity">
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16sdp"
+            android:gravity="center"
+            android:id="@+id/tvVerification"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/str_verification_code"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11sdp"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:id="@+id/tvDesc"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_regular"
+            app:layout_constraintTop_toBottomOf="@id/tvVerification"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/str_code_desc"/>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:id="@+id/tvMobileNumber"
+            android:textColor="@color/black"
+            android:fontFamily="@font/inter_regular"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text=""/>
+
+
+        <LinearLayout
+            android:id="@+id/llOtp"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/lightyellow"
+            android:layout_marginTop="@dimen/_120sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvMobileNumber"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_11sdp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_regular"
+                app:layout_constraintTop_toBottomOf="@id/tvDesc"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/str_enter_digit_pin"/>
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:background="@drawable/rectangle_edit"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:inputType="number"
+                    android:maxLength="1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:background="@drawable/rectangle_edit"
+                    android:inputType="number"
+                    android:maxLength="1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/rectangle_edit"
+                    android:inputType="number"
+                    android:maxLength="1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/rectangle_edit"
+                    android:inputType="number"
+                    android:maxLength="1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:background="@drawable/rectangle_edit"
+                    android:inputType="number"
+                    android:maxLength="1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber6"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textAlignment="center"
+                    android:background="@drawable/rectangle_edit"
+                    android:inputType="number"
+                    android:maxLength="1" />
+
+            </LinearLayout>
+
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvVerify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/rectangle_btn"
+                android:fontFamily="@font/inter_bold"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/str_verify" />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/llOtp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_did_not_resend_otp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_regular"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/str_resend_now"
+                android:id="@+id/tvResendOTP"
+
+                android:layout_marginStart="@dimen/_3sdp"
+                app:fontFamily="@font/inter_bold"
+                android:textColor="@color/darkyellow" />
+
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pbLoadData"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center"
+            android:theme="@style/CircularProgress"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

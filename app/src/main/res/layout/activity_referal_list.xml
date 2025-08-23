@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="adapter"
+            type="com.app.lifeset.adapter.ReferalListAdapter" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activity.ReferalListActivity">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_240sdp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/ic_curve"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitCenter" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/ivAppLogo"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitCenter"
+                android:src="@drawable/applogo" />
+
+
+            <ImageView
+                android:id="@+id/ivNotifications"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_13sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:paddingStart="@dimen/_5sdp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/baseline_notifications_none_24"
+                app:tint="@color/black" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ivNotifications"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Go Back"
+                android:textSize="@dimen/_12sdp" />
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvReferalDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/black"
+            app:fontFamily="@font/inter_bold"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_100sdp"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:fontFamily="@font/inter_bold"
+            android:text="Invite your friends, classmates, and peers to join our vibrant student network"
+            android:textSize="@dimen/_13sdp" />
+
+        <LinearLayout
+            android:id="@+id/llReferFriend"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_80sdp"
+            android:layout_below="@id/tvReferalDesc"
+            android:paddingVertical="@dimen/_8sdp"
+            android:paddingHorizontal="@dimen/_40sdp"
+            android:orientation="horizontal"
+            android:background="@drawable/rectangle_small_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_refer"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:text="@string/str_refer_your_friend"/>
+
+        </LinearLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvNoDataFound"
+            android:text="No Data Found"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            app:fontFamily="@font/inter_bold"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/black"/>
+
+        <LinearLayout
+            android:id="@+id/llReferalList"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_below="@id/llReferFriend"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="@drawable/rectangle_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkgrey"
+                app:fontFamily="@font/inter_bold"
+                android:textSize="@dimen/_13sdp"
+                android:text="@string/str_referal_list"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rvReferal"
+                android:adapter="@{adapter}"
+                android:padding="@dimen/_5sdp" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/pbLoadData"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:theme="@style/CircularProgress"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </RelativeLayout>
+</layout>
