@@ -18,6 +18,7 @@ data class StudentProfileModel(
     val profile: String,
     val freelancer_detail:String,
     val name: String,
+    val college_id:String?="",
     val email: String,
     val mobile: String,
     val gender: String,

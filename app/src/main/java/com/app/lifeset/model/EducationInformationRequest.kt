@@ -24,7 +24,8 @@ data class EducationInformationRequest(
     val edu_year: Array<String>,
     val edu_passyear: Array<String>,
     val edu_percentage: Array<String>,
-    val year:String
+    val year:String,
+    val course:String
 
 
     )

@@ -54,7 +54,7 @@
                                 android:paddingTop="@dimen/_1sdp"
                                 android:paddingEnd="@dimen/_10sdp"
                                 android:paddingBottom="@dimen/_1sdp"
-                                android:text="@string/str_exam"
+                                android:text="@string/str_govt_vacancies"
                                 android:textSize="@dimen/_11sdp" />
 
 

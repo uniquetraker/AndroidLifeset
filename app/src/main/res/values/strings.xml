@@ -56,12 +56,12 @@
 
     <string name="str_jobs">Jobs</string>
     <string name="str_internship">Internships</string>
-    <string name="str_exams">Govt Exams</string>
+    <string name="str_exams">Govt Vacancies</string>
     <string name="str_events">Events</string>
     <string name="str_gk">Gk</string>
-    <string name="str_gk_ca">CA &amp; GK</string>
-    <string name="str_test_preparation">Test</string>
-    <string name="str_personality">Personality</string>
+    <string name="str_gk_ca">Current Affairs</string>
+    <string name="str_test_preparation">MCQ</string>
+    <string name="str_personality">Know Yourself</string>
 
     <string name="str_event">Event</string>
     <string name="str_pincode">Pincode</string>
@@ -175,7 +175,7 @@
     <string name="str_learn_grow">Learn &amp; Grow</string>
     <string name="str_daily_digest">Daily Digest</string>
     <string name="str_current_affairs">Current Affairs</string>
-    <string name="str_general_studies">General Studies</string>
+    <string name="str_general_studies">General Knowledge</string>
 
     <string name="str_career_work">Career &amp; Work</string>
     <string name="str_fresher_jobs">Fresher Jobs</string>

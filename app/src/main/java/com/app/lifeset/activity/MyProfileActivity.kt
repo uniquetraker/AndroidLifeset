@@ -499,6 +499,7 @@ class MyProfileActivity : AppCompatActivity() {
                 getString(R.string.str_create_your_freelancer_profile)
         }
 
+        
 
         binding.apply {
             Glide.with(mContext).load(datas.profile)
@@ -510,6 +511,9 @@ class MyProfileActivity : AppCompatActivity() {
             tvName.text = datas.name
 
             PrefManager(mContext).setvalue(StaticData.name, datas.name)
+            PrefManager(mContext).setvalue(StaticData.course,datas.course)
+            PrefManager(mContext).setvalue(StaticData.college_id,datas.college_id)
+            PrefManager(mContext).setvalue(StaticData.school_name,datas.school_name)
 
 
             if (!datas.name.isNullOrEmpty()) {

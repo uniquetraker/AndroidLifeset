@@ -101,6 +101,7 @@
                                 android:background="@drawable/circle_notifications"
                                 android:gravity="center"
                                 android:text=""
+                                android:visibility="gone"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/_8sdp" />
 

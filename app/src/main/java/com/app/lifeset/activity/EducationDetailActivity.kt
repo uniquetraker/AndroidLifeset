@@ -3,6 +3,7 @@ package com.app.lifeset.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -14,9 +15,12 @@ import com.app.lifeset.R
 import com.app.lifeset.adapter.CustomArrayAdapter
 import com.app.lifeset.databinding.ActivityEducationDetailBinding
 import com.app.lifeset.extensions.isNetworkAvailable
+import com.app.lifeset.model.CategoryModel
+import com.app.lifeset.model.CourseModel
 import com.app.lifeset.model.EducationInformationRequest
 import com.app.lifeset.util.PrefManager
 import com.app.lifeset.util.StaticData
+import com.app.lifeset.viewmodel.SignUpViewModel
 import com.app.lifeset.viewmodel.UpdateProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import org.json.JSONArray
@@ -32,6 +36,8 @@ class EducationDetailActivity : AppCompatActivity() {
     private val viewModel: UpdateProfileViewModel by viewModels()
 
     private var year: String? = ""
+    private var yearList: ArrayList<CourseModel> = arrayListOf()
+    private val stringYearList: ArrayList<String> = arrayListOf()
 
 
     private var board: String? = ""
@@ -52,11 +58,15 @@ class EducationDetailActivity : AppCompatActivity() {
 
     private var courseName: String? = ""
     private var collageName: String? = ""
+    private var course_Id: String? = ""
+    private val signUpViewModel: SignUpViewModel by viewModels()
 
     private var passing1YearList: ArrayList<String> = arrayListOf()
     private var passing2YearList: ArrayList<String> = arrayListOf()
     private var passing3YearList: ArrayList<String> = arrayListOf()
     private var passing4YearList: ArrayList<String> = arrayListOf()
+    private var categoryList: ArrayList<CategoryModel> = arrayListOf()
+    private val stringCategoryList: ArrayList<String> = arrayListOf()
 
 
     private var mainYearList: ArrayList<String> = arrayListOf()
@@ -83,7 +93,7 @@ class EducationDetailActivity : AppCompatActivity() {
             tenPercentage = intent.getStringExtra("10_aggeregate")
             courseName = intent.getStringExtra("courseName")
             collageName = intent.getStringExtra("collageName")
-            binding.tvCollageName.setText(collageName)
+            binding.tvCollageName.text = collageName
 
             if (intent.getStringExtra("edu_year") != null) {
                 edu_year = intent.getStringExtra("edu_year")
@@ -193,7 +203,7 @@ class EducationDetailActivity : AppCompatActivity() {
             binding.edt10PassingYear.setText(tenPassingYear)
             binding.edt10Percentage.setText(tenPercentage)
         }
-        setMainYearData()
+        //   setMainYearData()
 
         setGradeData()
         set10GradeData()
@@ -201,6 +211,26 @@ class EducationDetailActivity : AppCompatActivity() {
         setPassing2Year()
         setPassing3Year()
         setPassing4Year()
+
+
+        if (isNetworkAvailable(mContext)) {
+            if (!PrefManager(mContext).getvalue(StaticData.school_name)
+                    .equals("Admin School (Not Registred)")
+            ) {
+                signUpViewModel.getCategory(
+                    PrefManager(mContext).getvalue(StaticData.college_id).toString(), ""
+                )
+            }
+
+
+        } else {
+            Toast.makeText(
+                mContext, getString(R.string.str_error_internet_connections),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+
     }
 
     private fun setMainYearData() {
@@ -301,6 +331,7 @@ class EducationDetailActivity : AppCompatActivity() {
                     val array2: Array<String> = jsonArrayToArray(educationPercentage)
                     array2.forEach { println(it) }
 
+                    Log.e("course_Id","="+course_Id.toString())
 
 
                     viewModel.getEducationInformation(
@@ -318,7 +349,8 @@ class EducationDetailActivity : AppCompatActivity() {
                             array,
                             array1,
                             array2,
-                            yearId.toString()
+                            yearId.toString(),
+                            course_Id.toString()
                         )
                     )
                 }
@@ -349,6 +381,12 @@ class EducationDetailActivity : AppCompatActivity() {
             binding.acMainYear.showDropDown()
             false
         }
+
+        binding.acSelectCourse.setOnTouchListener { _, _ ->
+            binding.acSelectCourse.showDropDown()
+            false
+        }
+
 
 
         binding.acPassing2Year.setOnTouchListener { _, _ ->
@@ -600,6 +638,48 @@ class EducationDetailActivity : AppCompatActivity() {
             }
         })
 
+        signUpViewModel.isLoading.observe(this, Observer {
+            if (it) {
+                binding.pbLoadData.visibility = View.VISIBLE
+            } else {
+                binding.pbLoadData.visibility = View.GONE
+            }
+        })
+
+
+        signUpViewModel.isCategoryLiveData.observe(this, Observer {
+            if (it.status) {
+                categoryList.clear()
+                categoryList.addAll(it.datas)
+
+                if (!courseName.isNullOrEmpty()) {
+                    binding.acSelectCourse.setText(courseName)
+                    binding.rrCourse.isClickable = false
+                    binding.rrCourse.isFocusable = false
+                    binding.rrCourse.isFocusableInTouchMode = false
+
+                    for (i in 0..categoryList.size - 1) {
+                        if (courseName?.equals(categoryList[i].name) == true) {
+                            course_Id = categoryList[i].id.toString()
+                            getYear(course_Id.toString())
+                            break
+                        }
+                    }
+
+                } else {
+                    binding.rrCourse.isClickable = true
+                    binding.rrCourse.isFocusable = true
+                    binding.rrCourse.isFocusableInTouchMode = true
+                    setCategoryData(categoryList)
+
+
+                }
+
+
+            } else {
+            }
+        })
+
         viewModel.educationInformationLiveData.observe(this, Observer {
             if (it.status) {
                 Toast.makeText(mContext, it.message, Toast.LENGTH_SHORT).show()
@@ -616,6 +696,14 @@ class EducationDetailActivity : AppCompatActivity() {
 
     private fun isValidate(): Boolean {
         var isValid = true
+        if (binding.acSelectCourse.text.toString().trim().isEmpty()) {
+            Toast.makeText(mContext, "Please select course", Toast.LENGTH_SHORT).show()
+            isValid = false
+        }
+        if (binding.acMainYear.text.toString().trim().isEmpty()) {
+            Toast.makeText(mContext, "Please select year", Toast.LENGTH_SHORT).show()
+            isValid = false
+        }
         if (binding.edt10Board.text.toString().trim().isEmpty()) {
             Toast.makeText(mContext, "Please enter 10th school name", Toast.LENGTH_SHORT).show()
             isValid = false
@@ -645,4 +733,92 @@ class EducationDetailActivity : AppCompatActivity() {
 
         return isValid
     }
+
+
+    private fun setCategoryData(categoryModel: ArrayList<CategoryModel>) {
+        stringCategoryList.clear()
+        for (i in 0 until categoryModel.size) {
+            stringCategoryList.add(categoryModel[i].name)
+        }
+
+        val arrayAdapter =
+            CustomArrayAdapter(mContext, stringCategoryList)
+        binding.acSelectCourse.threshold = 0
+        binding.acSelectCourse.dropDownVerticalOffset = 0
+        binding.acSelectCourse.setAdapter(arrayAdapter)
+
+        binding.acSelectCourse.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                course_Id = categoryModel[position].id.toString()
+
+                yearId = ""
+                binding.acMainYear.setText("")
+
+                getYear(course_Id.toString())
+            }
+
+    }
+
+    private fun getYear(courseid: String) {
+        signUpViewModel.getYear(courseid)
+
+        signUpViewModel.yearLiveData.observe(this, Observer {
+            if (it.status) {
+                yearList.clear()
+                yearList.addAll(it.datas)
+                setYearData(yearList)
+
+                if (yearList.size == 1) {
+                    yearId = "1"
+                    binding.llPassing1Year.visibility = View.VISIBLE
+                    binding.llPassing2Year.visibility = View.GONE
+                    binding.llPassing3Year.visibility = View.GONE
+                    binding.llPassing4Year.visibility = View.GONE
+
+
+                } else if (yearList.size == 2) {
+                    yearId = "2"
+                    binding.llPassing1Year.visibility = View.VISIBLE
+                    binding.llPassing2Year.visibility = View.VISIBLE
+                    binding.llPassing3Year.visibility = View.GONE
+                    binding.llPassing4Year.visibility = View.GONE
+
+                } else if (yearList.size == 3) {
+                    yearId = "3"
+                    binding.llPassing1Year.visibility = View.VISIBLE
+                    binding.llPassing2Year.visibility = View.VISIBLE
+                    binding.llPassing3Year.visibility = View.VISIBLE
+                    binding.llPassing4Year.visibility = View.GONE
+                } else {
+                    yearId = "4"
+                    binding.llPassing1Year.visibility = View.VISIBLE
+                    binding.llPassing2Year.visibility = View.VISIBLE
+                    binding.llPassing3Year.visibility = View.VISIBLE
+                    binding.llPassing4Year.visibility = View.VISIBLE
+                }
+            } else {
+            }
+        })
+    }
+
+    private fun setYearData(yearModel: ArrayList<CourseModel>) {
+        stringYearList.clear()
+        for (i in 0 until yearModel.size) {
+            stringYearList.add(yearModel[i].name)
+        }
+
+        val arrayAdapter: CustomArrayAdapter =
+            CustomArrayAdapter(mContext, stringYearList)
+        binding.acMainYear.threshold = 0
+        binding.acMainYear.dropDownVerticalOffset = 0
+        binding.acMainYear.setAdapter(arrayAdapter)
+
+        binding.acMainYear.onItemClickListener =
+            AdapterView.OnItemClickListener { parent, view, position, id ->
+                yearId = yearModel[position].value.toString()
+
+
+            }
+    }
+
 }
