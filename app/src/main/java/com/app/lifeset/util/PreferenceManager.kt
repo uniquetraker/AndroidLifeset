@@ -35,6 +35,13 @@ class PrefManager(val context: Context) {
         return pref.getBoolean(key, defaultvalue!!)
     }
 
+
+
+
+    fun getvalue(key: String?, defaultvalue: String?): String {
+        return pref.getString(key, defaultvalue).toString()
+    }
+
     fun setvalue(key: String?, value: Int) {
         editor.putInt(key, value)
         editor.commit()

@@ -6,4 +6,7 @@ import javax.inject.Inject
 class GKRepositories @Inject constructor(val apiService: ApiService) {
 
     suspend fun getGKData() = apiService.getGKData()
+    suspend fun getGeneralKnowledgeData(language:String)=apiService.getGeneralKnowledgeData(
+        language
+    )
 }

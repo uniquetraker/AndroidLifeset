@@ -62,6 +62,7 @@
     <string name="str_gk_ca">Current Affairs</string>
     <string name="str_test_preparation">MCQ</string>
     <string name="str_personality">Know Yourself</string>
+    <string name="str_general_knowledge">General Knowledge</string>
 
     <string name="str_event">Event</string>
     <string name="str_pincode">Pincode</string>
@@ -116,6 +117,7 @@
     <string name="str_privarcy_policy">Privacy Policy</string>
     <string name="str_logout">Logout</string>
     <string name="str_change_password">Change Password</string>
+    <string name="str_change_language">Change Language</string>
     <string name="str_student_list">Student List</string>
     <string name="str_invite_list">My Invites</string>
     <string name="str_my_network">My Networks</string>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LifeSet</string>
+    <string name="str_welcome_back">वापसी पर स्वागत है</string>
+    <string name="str_sign_continue">जारी रखने के लिए साइन इन करें</string>
+    <string name="str_email_address">मेल पता</string>
+    <string name="str_phone_number">फ़ोन नंबर</string>
+    <string name="str_password">पासवर्ड</string>'
+    <string name="str_forgot_password">पासवर्ड भूल गए</string>
+
+    <string name="str_general_knowledge">General Knowledge</string>
+    <string name="str_change_language">Change Language</string>
+    <string name="str_previous">पहले का</string>
+    <string name="str_next">अगला</string>
+
+    <string name="str_submit">जमा करना</string>
+    <string name="str_update_profile">प्रोफ़ाइल अपडेट करें</string>
+    <string name="str_update_profile_message">बेहतर अनुभव के लिए कृपया अपना फोटो जोड़ें, तथा अपनी शिक्षा और कौशल का विवरण पूरा करें।</string>
+    <string name="str_help">मदद चाहिए? तुरंत पाएँ</string>
+    <string name="str_support_whatsapp">व्हाट्सएप पर सहायता!</string>
+
+
+    <string name="str_update_information">अद्यतन जानकारी</string>
+
+    <string name="str_create_new_account">एक नया खाता बनाएं</string>
+    <string name="str_dont_details">यदि आपके पास विवरण नहीं है</string>
+    <string name="str_list_your_favourite">अपने संस्थान की सूची बनाएं</string>
+    <string name="str_not_find_list">हमारी सूची में नहीं मिला?</string>
+    <string name="str_institute_name">संस्थान का नाम</string>
+    <string name="str_request_for_otp">ओटीपी के लिए अनुरोध</string>
+    <string name="str_terms_conditions">मैंने सभी नियम व शर्तें स्वीकार कर ली हैं <u>उसे क्लिक करेंe</u></string>
+    <string name="dont_account">यदि आपके पास खाता नहीं है तो एक नया खाता बनाएँ</string>
+    <string name="str_already_have_an_account">क्या आपके पास पहले से एक खाता मौजूद है?</string>
+    <string name="str_login">लॉग इन करें</string>
+
+    <string name="str_my_space">मेरी जगह</string>
+
+    <string name="str_edit_profile_details">प्रोफ़ाइल विवरण संपादित करें</string>
+
+    <string name="str_activate_account_des">मदद चाहिए? व्हाट्सएप पर तुरंत सहायता प्राप्त करें! <b>व्हाट्सएप पर सहायता</b></string>
+
+    <string name="str_welcome">नमस्ते, स्वागत है</string>
+    <string name="str_activate_your_account">अपना खाता सक्रिय करें</string>
+
+    <string name="str_share">शेयर करना</string>
+
+    <string name="str_old_password">पुराना पासवर्ड</string>
+    <string name="str_new_password">नया पासवर्ड</string>
+    <string name="str_confirm_new_password">नए पासवर्ड की पुष्टि करें</string>
+
+    <string name="str_select_course">पाठ्यक्रम चुनें</string>
+    <string name="str_select_year">वर्ष चुनें</string>
+
+    <string name="str_create_your_freelancer_profile">अपना फ्रीलांसर प्रोफ़ाइल बनाएं</string>
+    <string name="str_update_your_freelancer_profile">अपनी फ्रीलांसर प्रोफ़ाइल अपडेट करें</string>
+    <string name="str_view_profile_card">अपना प्रोफ़ाइल कार्ड देखें</string>
+    <string name="str_note">टिप्पणी:</string>
+    <string name="str_note_desc">यह आपके प्रोफ़ाइल का सार्वजनिक पूर्वावलोकन है जो समुदाय में अन्य लोगों को दिखाई देता है।</string>
+
+    <string name="str_jobs">नौकरियां</string>
+    <string name="str_internship">इंटर्नशिप</string>
+    <string name="str_exams">सरकारी रिक्तियां</string>
+    <string name="str_events">घटनाएँ</string>
+    <string name="str_gk">जीके</string>
+    <string name="str_gk_ca">सामयिकी</string>
+    <string name="str_test_preparation">एमसीक्यू</string>
+    <string name="str_personality">स्वयं को जानें</string>
+
+    <string name="str_event">आयोजन</string>
+    <string name="str_pincode">पिनकोड</string>
+    <string name="str_state">राज्य</string>
+    <string name="str_district">ज़िला</string>
+
+    <string name="str_exam">परीक्षा</string>
+    <string name="str_exam_level">परीक्षा स्तर</string>
+    <string name="str_name_of_post">पद का नाम</string>
+    <string name="str_1st_announcement_date">पहली घोषणा तिथि</string>
+    <string name="str_last_date_form_filling">फॉर्म भरने की अंतिम तिथि</string>
+    <string name="str_exam_dates">परीक्षा तिथि</string>
+    <string name="str_fees">फीस</string>
+    <string name="str_vacancy_seats">रिक्तियां/सीटें</string>
+    <string name="str_age_limit">आयु सीमा</string>
+
+
+    <string name="str_job_title">पद का नाम   </string>
+    <string name="str_company_name">कंपनी का नाम   </string>
+    <string name="str_industry">उद्योग   </string>
+    <string name="str_functions">कार्य   </string>
+    <string name="str_role">भूमिका   </string>
+    <string name="str_past_experience">अतीत के अनुभव   </string>
+    <string name="str_job_type">नौकरी का प्रकार   </string>
+    <string name="str_clients_to_manage">प्रबंधित करने के लिए ग्राहक   </string>
+    <string name="str_capacity">क्षमता   </string>
+    <string name="str_yearly_salary">वार्षिक वेतन   </string>
+    <string name="str_working_days">काम कर दिन   </string>
+    <string name="str_work_time">कार्य समय   </string>
+    <string name="str_job_applied">नौकरी के लिए आवेदन   </string>
+
+    <string name="str_applied_jobs">एप्लाइड जॉब्स</string>
+    <string name="str_freelancer_jobs">फ्रीलांसर नौकरियां</string>
+
+
+    <string name="str_verification_code">सत्यापन कोड</string>
+    <string name="str_code_desc">हमने आपके मोबाइल नंबर पर 6 अंकों का सत्यापन कोड भेज दिया है</string>
+    <string name="str_enter_digit_pin">6 अंकों का पिन दर्ज करें</string>
+    <string name="str_verify">सत्यापित करें और आगे बढ़ें</string>
+    <string name="str_did_not_resend_otp">OTP प्राप्त नहीं हुआ</string>
+    <string name="str_resend_now">अभी पुनः भेजें!</string>
+
+    <string name="str_category">वर्ग</string>
+    <string name="str_religion">धर्म</string>
+
+    <string name="open_drawer">दराज खोलें</string>
+    <string name="close_drawer">दराज बंद करें</string>
+    <string name="str_home">घर</string>
+    <string name="str_profile">मेरी प्रोफाइल</string>
+    <string name="str_aboutus">हमारे बारे में</string>
+    <string name="str_termsconditions">नियम एवं शर्तें</string>
+    <string name="str_privarcy_policy">गोपनीयता नीति</string>
+    <string name="str_logout">लॉग आउट</string>
+    <string name="str_change_password">पासवर्ड बदलें</string>
+    <string name="str_student_list">छात्र सूची</string>
+    <string name="str_invite_list">मेरे निमंत्रण</string>
+    <string name="str_my_network">मेरे नेटवर्क</string>
+    <string name="str_my_chats">मेरी चैट</string>
+    <string name="str_chat_history">चैट का इतिहास</string>
+    <string name="str_my_profile">मेरी प्रोफाइल</string>
+    <string name="str_send_invite">आमंत्रण भेजो</string>
+    <string name="str_interest">दिलचस्पी:</string>
+    <string name="str_studying_at">इसमें अध्ययनरत</string>
+    <string name="str_message">संदेश</string>
+    <string name="str_student_connect">छात्र कनेक्ट</string>
+
+    <string name="str_my_card">मेरे कार्ड</string>
+
+    <string name="str_update">अद्यतन</string>
+    <string name="str_type_your_freelancer_skills">अपने फ्रीलांसर कौशल टाइप करें...</string>
+    <string name="str_list_the_skills">कौशलों की सूची बनाएं</string>
+    <string name="str_youre_great_at">आप महान हैं</string>
+    <string name="str_your_freelancer_profile">आपकी फ्रीलांसर प्रोफ़ाइल</string>
+
+    <string name="str_notifications">सूचनाएं</string>
+
+    <string name="str_personal_information">व्यक्तिगत जानकारी</string>
+
+    <string name="str_home_town">गृहनगर का पता</string>
+
+    <string name="str_education_detail">शिक्षा विवरण</string>
+
+    <string name="str_skills">कौशल</string>
+
+    <string name="str_apply_jobs">एप्लाइड जॉब्स</string>
+
+    <string name="str_technical_skills">तकनीकी कौशल</string>
+    <string name="str_proffessional_skills">व्यावसायिक कौशल</string>
+    <string name="str_soft_skills">सॉफ्ट स्किल्स</string>
+    <string name="str_interest_hobbies">रुचि शौक</string>
+
+    <string name="str_freelancer">फ्रीलांसर</string>
+
+    <string name="str_refer_your_friend">अपने दोस्तों को रेफर करें</string>
+    <string name="str_referal_list">रेफरल सूची</string>
+
+    <string name="str_camera">कैमरा</string>
+    <string name="str_galery">गैलरी</string>
+    <string name="str_cancel">रद्द करना</string>
+
+    <string name="networks">नेटवर्क</string>
+    <string name="invites">आमंत्रण</string>
+    <string name="connects">जोड़ता है</string>
+    <string name="chats">चैट</string>
+
+    <string name="str_opportunities">अवसर और कार्यक्रम</string>
+    <string name="str_govt_vacancies">सरकारी रिक्तियां</string>
+    <string name="str_collage_events">कॉलेज के कार्यक्रम</string>
+    <string name="str_institutes">संस्थानों का अन्वेषण करें</string>
+
+    <string name="str_learn_grow">सीखें और बढ़ें</string>
+    <string name="str_daily_digest">दैनिक खुलासा</string>
+    <string name="str_current_affairs">सामयिकी</string>
+    <string name="str_general_studies">सामान्य ज्ञान</string>
+
+    <string name="str_career_work">करियर और कार्य</string>
+    <string name="str_fresher_jobs">फ्रेशर्स नौकरियां</string>
+
+    <string name="str_lifeset_desc">इसका उद्देश्य युवाओं और छात्रों को उनके करियर निर्माण के शुरुआती चरण में मदद करना है</string>
+
+    <string name="str_networking">नेटवर्किंग</string>
+
+    <string name="str_absolutly_incorrect">बिलकुल गलत  <b>Absolutely Incorrect</b></string>
+    <string name="str_partially_incorrect">कुछ हद तक ग़लत  <b>Partially Incorrect</b></string>
+    <string name="str_neutral">निष्पक्ष  <b>Neutral</b></string>
+    <string name="str_partially_correct">कुछ हद तक सही <b>Partially Correct</b></string>
+    <string name="str_absolutely_correct">बिलकुल सही  <b>Absolutely Correct</b></string>
+    <string name="abcd">abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,./1234567890@:&amp;$*+-_=!#/?()[]</string>
+
+
+    <string name="str_error_valid_phone_number">कृपया एक वैध नंबर डालें</string>
+    <string name="str_error_email_address">कृपया ईमेल पता दर्ज करें</string>
+    <string name="str_error_valid_email_address">कृपया सही ईमेल पता दें</string>
+    <string name="str_error_password">कृपया पासवर्ड दर्ज करें</string>
+    <string name="str_error_internet_connections">Please check your internet connections</string>
+    <string name="str_profile_card_note">यह आपके प्रोफ़ाइल का सार्वजनिक पूर्वावलोकन है जो समुदाय में अन्य लोगों को दिखाई देता है।</string>
+    <string name="str_create_profile_note">यह जानकारी आपके कौशल को प्रदर्शित करने में मदद करती है और फ्रीलांसिंग कार्य पाने की आपकी संभावनाओं को बढ़ा सकती है।</string>
+
+</resources>

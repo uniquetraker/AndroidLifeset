@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import com.app.lifeset.R
 import java.time.LocalDateTime
+import java.time.OffsetDateTime
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -51,6 +53,15 @@ fun createdDateFormat(inputDate: String): String {
     return formattedDate
 
 }
+
+fun convertIsoToReadableDate(inputDate: String): String {
+    val dateTime = OffsetDateTime.parse(inputDate, DateTimeFormatter.ISO_OFFSET_DATE_TIME)
+
+    val outputFormatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", Locale.ENGLISH)
+
+    return dateTime.format(outputFormatter)
+}
+
 
 
 

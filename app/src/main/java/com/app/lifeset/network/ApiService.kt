@@ -21,11 +21,13 @@ import com.app.lifeset.model.ExamResponse
 import com.app.lifeset.model.FreelancerJobsResponse
 import com.app.lifeset.model.FreelancerStatusResponse
 import com.app.lifeset.model.GKResponse
+import com.app.lifeset.model.GeneralKnowledgeResponse
 import com.app.lifeset.model.HomeTownRequest
 import com.app.lifeset.model.InviteStudentResponse
 import com.app.lifeset.model.JobDetailResponse
 import com.app.lifeset.model.JobResponse
 import com.app.lifeset.model.LoginResponse
+import com.app.lifeset.model.McqResponse
 import com.app.lifeset.model.NotificationResponse
 import com.app.lifeset.model.OtpResponse
 import com.app.lifeset.model.PersonalInformationModel
@@ -371,4 +373,14 @@ interface ApiService {
             "referral_id"
         )referral_id:String
     ):Response<DeleteReferalResponse>
+
+    @GET("get_post_gk_data")
+    suspend fun getGeneralKnowledgeData(
+        @Query("langu")langu:String
+    ):Response<GeneralKnowledgeResponse>
+
+    @GET("get_mcq_data")
+    suspend fun getMcqData(
+        @Query("langu")langu:String
+    ):Response<McqResponse>
 }

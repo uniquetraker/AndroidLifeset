@@ -26,6 +26,16 @@
             name="gkAdapter"
             type="com.app.lifeset.adapter.GKAdapter" />
 
+        <variable
+            name="mcqAdapter"
+            type="com.app.lifeset.adapter.McqAdapter" />
+
+        <variable
+            name="generalKnowledgeAdapter"
+            type="com.app.lifeset.adapter.GeneralKnowledgeAdapter" />
+
+        
+
 
         <variable
             name="personalityAdapter"
@@ -279,6 +289,32 @@
 
 
                     </androidx.viewpager2.widget.ViewPager2>
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/rvMcq"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/llWall"
+                        android:adapter="@{mcqAdapter}"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+                    </androidx.viewpager2.widget.ViewPager2>
+
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/rvGeneralKnowlege"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/llWall"
+                        android:adapter="@{gkAdapter}"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+
+                    </androidx.viewpager2.widget.ViewPager2>
+
 
 
                     <androidx.viewpager2.widget.ViewPager2

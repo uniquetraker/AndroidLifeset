@@ -20,6 +20,12 @@
         android:title="@string/str_change_password" />
 
     <item
+        android:id="@+id/menu_changeLanguage"
+        android:icon="@drawable/ic_applyjob"
+        android:title="@string/str_change_language" />
+
+
+    <item
         android:visible="false"
         android:id="@+id/menu_applyjobs"
         android:icon="@drawable/ic_applyjob"

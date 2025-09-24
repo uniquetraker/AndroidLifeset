@@ -121,27 +121,33 @@ class HomeActivity : AppCompatActivity() {
             firebaseAnalytics.logEvent(
                 StaticData.personalityClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","Personality")
-                .putExtra("selectedPosition",5))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "Personality")
+                    .putExtra("selectedPosition", 5)
+            )
         }
 
         binding.llDailyDigest.setOnClickListener {
             firebaseAnalytics.logEvent(
                 StaticData.gkClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","CA & GK")
-                .putExtra("selectedPosition",0))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "CA & GK")
+                    .putExtra("selectedPosition", 0)
+            )
 
         }
         binding.llCurrentAffairs.setOnClickListener {
             firebaseAnalytics.logEvent(
                 StaticData.gkClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","CA & GK")
-                .putExtra("selectedPosition",0))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "CA & GK")
+                    .putExtra("selectedPosition", 0)
+            )
 
 
         }
@@ -149,27 +155,33 @@ class HomeActivity : AppCompatActivity() {
             firebaseAnalytics.logEvent(
                 StaticData.gkClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","CA & GK")
-                .putExtra("selectedPosition",0))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "generalknowledge")
+                    .putExtra("selectedPosition", 6)
+            )
 
         }
         binding.llGovtVacancies.setOnClickListener {
             firebaseAnalytics.logEvent(
                 StaticData.govtexamsClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","Govt Exams")
-                .putExtra("selectedPosition",1))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "Govt Exams")
+                    .putExtra("selectedPosition", 1)
+            )
 
         }
         binding.llCollageEvents.setOnClickListener {
             firebaseAnalytics.logEvent(
                 StaticData.eventsClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","Events")
-                .putExtra("selectedPosition",2))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "Events")
+                    .putExtra("selectedPosition", 2)
+            )
 
         }
         binding.llInstitutes.setOnClickListener {
@@ -203,17 +215,21 @@ class HomeActivity : AppCompatActivity() {
             firebaseAnalytics.logEvent(
                 StaticData.internshipClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","Internship")
-                .putExtra("selectedPosition",3))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "Internship")
+                    .putExtra("selectedPosition", 3)
+            )
         }
         binding.llFresherJobs.setOnClickListener {
             firebaseAnalytics.logEvent(
                 StaticData.jobsClicked, null
             )
-            startActivity(Intent(mContext,MainActivity::class.java)
-                .putExtra("mainType","Job")
-                .putExtra("selectedPosition",4))
+            startActivity(
+                Intent(mContext, MainActivity::class.java)
+                    .putExtra("mainType", "Job")
+                    .putExtra("selectedPosition", 4)
+            )
         }
         binding.ivLinkedin.setOnClickListener {
             openLinkedInCompanyPage(this)
@@ -386,6 +402,10 @@ class HomeActivity : AppCompatActivity() {
 
                 R.id.menu_logout -> {
                     logoutDialog()
+                }
+
+                R.id.menu_changeLanguage -> {
+                    startActivity(Intent(mContext, ChangeLanguageActivity::class.java))
                 }
 
             }

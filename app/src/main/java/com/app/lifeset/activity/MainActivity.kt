@@ -23,7 +23,9 @@ import com.app.lifeset.R
 import com.app.lifeset.adapter.EventAdapter
 import com.app.lifeset.adapter.ExamAdapter
 import com.app.lifeset.adapter.GKAdapter
+import com.app.lifeset.adapter.GeneralKnowledgeAdapter
 import com.app.lifeset.adapter.JobCategoryAdapter
+import com.app.lifeset.adapter.McqAdapter
 import com.app.lifeset.adapter.PersonalityListAdapter
 import com.app.lifeset.adapter.WallCategoryAdapter
 import com.app.lifeset.databinding.ActivityMainBinding
@@ -31,7 +33,9 @@ import com.app.lifeset.extensions.isNetworkAvailable
 import com.app.lifeset.model.EventData
 import com.app.lifeset.model.ExamModel
 import com.app.lifeset.model.GKData
+import com.app.lifeset.model.GeneralKnowledgeModel
 import com.app.lifeset.model.JobModel
+import com.app.lifeset.model.McqModel
 import com.app.lifeset.model.NotificationModel
 import com.app.lifeset.model.PersonalityModel
 import com.app.lifeset.model.PersonalityRequest
@@ -42,6 +46,7 @@ import com.app.lifeset.viewmodel.EventViewModel
 import com.app.lifeset.viewmodel.ExamViewModel
 import com.app.lifeset.viewmodel.GkViewModel
 import com.app.lifeset.viewmodel.JobViewModel
+import com.app.lifeset.viewmodel.McqViewModel
 import com.app.lifeset.viewmodel.NotificationViewModel
 import com.app.lifeset.viewmodel.PersonalityViewModel
 import com.app.lifeset.viewmodel.ProfileViewModel
@@ -65,11 +70,14 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
     private val gkViewModel: GkViewModel by viewModels()
     private val profileViewModel: ProfileViewModel by viewModels()
     private val personalityViewModel: PersonalityViewModel by viewModels()
+    private val mcqViewModel: McqViewModel by viewModels()
     private var wallCategoryList: ArrayList<WallCategoryModel> = arrayListOf()
     private var jobList: ArrayList<JobModel> = arrayListOf()
     private var examList: ArrayList<ExamModel> = arrayListOf()
     private var eventList: ArrayList<EventData> = arrayListOf()
     private var gkList: ArrayList<GKData> = arrayListOf()
+    private var mcqList:ArrayList<McqModel> = arrayListOf()
+    private var generalKnowlegeList: ArrayList<GeneralKnowledgeModel> = arrayListOf()
     private var personalityList: ArrayList<PersonalityModel> = arrayListOf()
     private var type = "CA & Gk"
     private var model: JobModel? = null
@@ -89,6 +97,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
     private var total: Int = 0
     private var post_url: String? = ""
     private var gkPost_url: String? = ""
+    private var genralKnowledgeUrl: String? = ""
     private var callDate: Boolean = false
     lateinit var firebaseAnalytics: FirebaseAnalytics
     private var answer: String? = ""
@@ -132,6 +141,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
             binding.rvExam.visibility = View.GONE
             binding.rvEvents.visibility = View.GONE
             binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
             binding.rvPersonality.visibility = View.GONE
             binding.tvNoDataFound.visibility = View.GONE
             binding.rrNewBottom.visibility = View.GONE
@@ -149,11 +159,12 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 ).show()
             }
             binding.adapter?.notifyDataSetChanged()
-        }else if (mainType == "CA & GK"){
+        } else if (mainType == "CA & GK") {
             binding.rvJob.visibility = View.GONE
             binding.rvExam.visibility = View.GONE
             binding.rvEvents.visibility = View.GONE
             binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
             binding.tvNoDataFound.visibility = View.GONE
             binding.rrNewBottom.visibility = View.GONE
             currentPosition = 0
@@ -168,11 +179,12 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
             }
             binding.adapter?.notifyDataSetChanged()
 
-        }else if (mainType == "Govt Exams"){
+        } else if (mainType == "Govt Exams") {
             binding.rvJob.visibility = View.GONE
             binding.rvExam.visibility = View.GONE
             binding.rvEvents.visibility = View.GONE
             binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
             binding.rvPersonality.visibility = View.GONE
             binding.tvNoDataFound.visibility = View.GONE
             binding.rrNewBottom.visibility = View.GONE
@@ -187,11 +199,12 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 ).show()
             }
             binding.adapter?.notifyDataSetChanged()
-        }else if (mainType == "Events"){
+        } else if (mainType == "Events") {
             binding.rvJob.visibility = View.GONE
             binding.rvExam.visibility = View.GONE
             binding.rvEvents.visibility = View.GONE
             binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
             binding.rvPersonality.visibility = View.GONE
             binding.tvNoDataFound.visibility = View.GONE
             binding.rrNewBottom.visibility = View.GONE
@@ -206,11 +219,12 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 ).show()
             }
             binding.adapter?.notifyDataSetChanged()
-        }else if (mainType == "Internship"){
+        } else if (mainType == "Internship") {
             binding.rvJob.visibility = View.GONE
             binding.rvExam.visibility = View.GONE
             binding.rvEvents.visibility = View.GONE
             binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
             binding.rvPersonality.visibility = View.GONE
             binding.tvNoDataFound.visibility = View.GONE
             binding.rrNewBottom.visibility = View.GONE
@@ -228,11 +242,12 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 ).show()
             }
             binding.adapter?.notifyDataSetChanged()
-        }else if (mainType == "Personality"){
+        } else if (mainType == "Personality") {
             binding.rvJob.visibility = View.GONE
             binding.rvExam.visibility = View.GONE
             binding.rvEvents.visibility = View.GONE
             binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
             binding.rvPersonality.visibility = View.GONE
             binding.tvNoDataFound.visibility = View.GONE
             binding.rrNewBottom.visibility = View.GONE
@@ -241,6 +256,54 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
             if (isNetworkAvailable(mContext)) {
                 personalityViewModel.getPersonalityData(
                     PrefManager(mContext).getvalue(StaticData.id).toString()
+                )
+            } else {
+                Toast.makeText(
+                    mContext, getString(R.string.str_error_internet_connections),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            binding.adapter?.notifyDataSetChanged()
+
+        } else if (mainType == "generalknowledge") {
+            binding.rvJob.visibility = View.GONE
+            binding.rvExam.visibility = View.GONE
+            binding.rvEvents.visibility = View.GONE
+            binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
+            binding.rvGeneralKnowlege.visibility = View.GONE
+            binding.rvPersonality.visibility = View.GONE
+            binding.tvNoDataFound.visibility = View.GONE
+            binding.rrNewBottom.visibility = View.GONE
+            currentPosition = 0
+            type = mainType
+            if (isNetworkAvailable(mContext)) {
+                gkViewModel.getGeneralKnowledgeData(
+                    PrefManager(mContext).getvalue(StaticData.language,"English")
+                )
+            } else {
+                Toast.makeText(
+                    mContext, getString(R.string.str_error_internet_connections),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            binding.adapter?.notifyDataSetChanged()
+
+        }else if (mainType == "mcq") {
+            binding.rvJob.visibility = View.GONE
+            binding.rvExam.visibility = View.GONE
+            binding.rvEvents.visibility = View.GONE
+            binding.rvGk.visibility = View.GONE
+            binding.rvMcq.visibility=View.GONE
+            binding.rvGeneralKnowlege.visibility = View.GONE
+            binding.rvPersonality.visibility = View.GONE
+            binding.tvNoDataFound.visibility = View.GONE
+            binding.rrNewBottom.visibility = View.GONE
+            currentPosition = 0
+            type = mainType
+            if (isNetworkAvailable(mContext)) {
+                mcqViewModel.getMcqData(
+                    PrefManager(mContext).getvalue(StaticData.language,"English")
                 )
             } else {
                 Toast.makeText(
@@ -302,6 +365,14 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 "Personality" -> {
                     binding.rvPersonality.setCurrentItem(currentPosition - 1, true)
                 }
+
+                "generalknowledge" -> {
+                    binding.rvGeneralKnowlege.setCurrentItem(currentPosition - 1, true)
+                    genralKnowledgeUrl = generalKnowlegeList[currentPosition].full_document_link
+                }
+                "mcq"->{
+                    binding.rvMcq.setCurrentItem(currentPosition - 1, true)
+                }
             }
 
         }
@@ -332,6 +403,14 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 "Personality" -> {
                     binding.rvPersonality.setCurrentItem(currentPosition + 1, true)
 
+                }
+
+                "generalknowledge" -> {
+                    binding.rvGeneralKnowlege.setCurrentItem(currentPosition + 1, true)
+                    genralKnowledgeUrl = generalKnowlegeList[currentPosition].full_document_link
+                }
+                "mcq"->{
+                    binding.rvMcq.setCurrentItem(currentPosition + 1, true)
                 }
             }
         }
@@ -384,6 +463,16 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 intent.data = Uri.parse(gkPost_url)
                 startActivity(intent)
 
+            }else if (type == "generalknowledge") {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(genralKnowledgeUrl)
+                    startActivity(intent)
+                }catch (e:Exception){
+
+                }
+
+
             }
         }
     }
@@ -400,8 +489,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
 
     private fun setData() {
-        if (intent.extras!=null){
-            selectedPosition=intent.getIntExtra("selectedPosition",0)
+        if (intent.extras != null) {
+            selectedPosition = intent.getIntExtra("selectedPosition", 0)
         }
 
 
@@ -414,7 +503,13 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         wallCategoryList.add(WallCategoryModel("Personality", getString(R.string.str_personality)))
         wallCategoryList.add(
             WallCategoryModel(
-                "Test Preparations",
+                "generalknowledge",
+                getString(R.string.str_general_knowledge)
+            )
+        )
+        wallCategoryList.add(
+            WallCategoryModel(
+                "mcq",
                 getString(R.string.str_test_preparation)
             )
         )
@@ -502,6 +597,13 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
             }
         })
 
+        mcqViewModel.isLoading.observe(this, Observer {
+            if (it) {
+                binding.pbLoadData.visibility = View.VISIBLE
+            } else {
+                binding.pbLoadData.visibility = View.GONE
+            }
+        })
         /*viewModel.settingsMobileDateResponse.observe(this, Observer {
             if (it.status) {
             }
@@ -561,6 +663,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.VISIBLE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.GONE
                     binding.rrNewBottom.visibility = View.VISIBLE
@@ -570,9 +674,12 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.VISIBLE
                     binding.rrNewBottom.visibility = View.GONE
+
                 }
 
             } else {
@@ -580,11 +687,61 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 binding.rvExam.visibility = View.GONE
                 binding.rvEvents.visibility = View.GONE
                 binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
                 binding.rvPersonality.visibility = View.GONE
                 binding.tvNoDataFound.visibility = View.VISIBLE
                 binding.rrNewBottom.visibility = View.GONE
             }
         })
+
+
+
+
+        gkViewModel.generalKnowledgeLiveData.observe(this, Observer {
+            if (it.status) {
+                generalKnowlegeList.clear()
+                generalKnowlegeList = it.data
+                if (generalKnowlegeList.size > 0) {
+                    binding.rvExam.visibility = View.GONE
+                    binding.rvJob.visibility = View.GONE
+                    binding.rvEvents.visibility = View.GONE
+                    binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.VISIBLE
+                    binding.rvPersonality.visibility = View.GONE
+                    binding.tvNoDataFound.visibility = View.GONE
+                    binding.rrNewBottom.visibility = View.VISIBLE
+                    setGeneralKnowledgeAdapter(generalKnowlegeList)
+                } else {
+                    binding.rvExam.visibility = View.GONE
+                    binding.rvJob.visibility = View.GONE
+                    binding.rvEvents.visibility = View.GONE
+                    binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
+                    binding.rvPersonality.visibility = View.GONE
+                    binding.tvNoDataFound.visibility = View.VISIBLE
+                    binding.rrNewBottom.visibility = View.GONE
+
+                }
+
+            } else {
+                binding.rvJob.visibility = View.GONE
+                binding.rvExam.visibility = View.GONE
+                binding.rvEvents.visibility = View.GONE
+                binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
+                binding.rvPersonality.visibility = View.GONE
+                binding.tvNoDataFound.visibility = View.VISIBLE
+                binding.rrNewBottom.visibility = View.GONE
+            }
+        })
+
+
+
+
 
         personalityViewModel.personalityLiveData.observe(this, Observer {
             if (it.success) {
@@ -595,6 +752,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.VISIBLE
                     binding.tvNoDataFound.visibility = View.GONE
                     binding.rrNewBottom.visibility = View.VISIBLE
@@ -604,6 +763,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.VISIBLE
                     binding.rrNewBottom.visibility = View.GONE
@@ -614,6 +775,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 binding.rvExam.visibility = View.GONE
                 binding.rvEvents.visibility = View.GONE
                 binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
                 binding.rvPersonality.visibility = View.GONE
                 binding.tvNoDataFound.visibility = View.VISIBLE
                 binding.rrNewBottom.visibility = View.GONE
@@ -621,6 +784,49 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
         })
 
+
+
+
+        mcqViewModel.mcqLiveData.observe(this, Observer {
+            if (it.status) {
+                mcqList.clear()
+                mcqList = it.data
+                if (mcqList.size > 0) {
+                    binding.rvExam.visibility = View.GONE
+                    binding.rvJob.visibility = View.GONE
+                    binding.rvEvents.visibility = View.GONE
+                    binding.rvGk.visibility = View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
+                    binding.rvPersonality.visibility = View.GONE
+                    binding.rvMcq.visibility=View.VISIBLE
+                    binding.tvNoDataFound.visibility = View.GONE
+                    binding.rrNewBottom.visibility = View.VISIBLE
+                    setMcqAdapter(mcqList)
+                } else {
+                    binding.rvExam.visibility = View.GONE
+                    binding.rvJob.visibility = View.GONE
+                    binding.rvEvents.visibility = View.GONE
+                    binding.rvGk.visibility = View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvPersonality.visibility = View.GONE
+                    binding.tvNoDataFound.visibility = View.VISIBLE
+                    binding.rrNewBottom.visibility = View.GONE
+                }
+
+            } else {
+                binding.rvJob.visibility = View.GONE
+                binding.rvExam.visibility = View.GONE
+                binding.rvEvents.visibility = View.GONE
+                binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
+                binding.rvPersonality.visibility = View.GONE
+                binding.tvNoDataFound.visibility = View.VISIBLE
+                binding.rrNewBottom.visibility = View.GONE
+            }
+
+        })
 
 
         examViewModel.examLiveData.observe(this, Observer
@@ -633,6 +839,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.GONE
                     binding.rrNewBottom.visibility = View.VISIBLE
@@ -642,6 +850,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.VISIBLE
                     binding.rrNewBottom.visibility = View.GONE
@@ -652,6 +862,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 binding.rvExam.visibility = View.GONE
                 binding.rvEvents.visibility = View.GONE
                 binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
                 binding.rvPersonality.visibility = View.GONE
                 binding.tvNoDataFound.visibility = View.VISIBLE
                 binding.rrNewBottom.visibility = View.GONE
@@ -670,7 +882,9 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvJob.visibility = View.GONE
                     binding.rvExam.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
                     binding.rvEvents.visibility = View.VISIBLE
                     binding.tvNoDataFound.visibility = View.GONE
                     binding.rrNewBottom.visibility = View.VISIBLE
@@ -680,6 +894,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvExam.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.VISIBLE
                     binding.rrNewBottom.visibility = View.GONE
@@ -690,6 +906,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 binding.rvExam.visibility = View.GONE
                 binding.rvEvents.visibility = View.GONE
                 binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
                 binding.rvPersonality.visibility = View.GONE
                 binding.tvNoDataFound.visibility = View.VISIBLE
                 binding.rrNewBottom.visibility = View.GONE
@@ -711,6 +929,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvExam.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.GONE
                     binding.rrNewBottom.visibility = View.VISIBLE
@@ -720,6 +940,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     binding.rvExam.visibility = View.GONE
                     binding.rvEvents.visibility = View.GONE
                     binding.rvGk.visibility = View.GONE
+                    binding.rvGeneralKnowlege.visibility = View.GONE
+                    binding.rvMcq.visibility=View.GONE
                     binding.rvPersonality.visibility = View.GONE
                     binding.tvNoDataFound.visibility = View.VISIBLE
                     binding.rrNewBottom.visibility = View.GONE
@@ -730,6 +952,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 binding.rvExam.visibility = View.GONE
                 binding.rvEvents.visibility = View.GONE
                 binding.rvGk.visibility = View.GONE
+                binding.rvMcq.visibility=View.GONE
+                binding.rvGeneralKnowlege.visibility = View.GONE
                 binding.rvPersonality.visibility = View.GONE
                 binding.tvNoDataFound.visibility = View.VISIBLE
                 binding.rrNewBottom.visibility = View.GONE
@@ -1008,6 +1232,78 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
     }
 
 
+    private fun setGeneralKnowledgeAdapter(generalKnowledgeList: ArrayList<GeneralKnowledgeModel>) {
+        binding.apply {
+            generalKnowledgeAdapter =
+                GeneralKnowledgeAdapter(mContext, generalKnowledgeList, this@MainActivity)
+            rvGeneralKnowlege.adapter = generalKnowledgeAdapter
+            generalKnowledgeAdapter?.notifyDataSetChanged()
+        }
+
+
+
+
+        binding.rvGeneralKnowlege.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+            }
+
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+                /*
+                                if (currentPage <= total && position == binding.jobAdapter?.itemCount!! - 1) {
+                                    currentPage++
+                                    viewModel.getJobList(
+                                        type.toString(),
+                                        PrefManager(mContext).getvalue(StaticData.id).toString()
+                                    )
+                                }
+                */
+
+
+                currentPosition = position
+
+
+
+                if (generalKnowledgeList.size > 0) {
+                    if (generalKnowledgeList[currentPosition].type.equals("GK")) {
+                        genralKnowledgeUrl = generalKnowledgeList[currentPosition].full_document_link
+                        if (!generalKnowledgeList[currentPosition].documnet_link.isNullOrEmpty()) {
+                            binding.tvReadMore.visibility = View.VISIBLE
+                        } else {
+                            binding.tvReadMore.visibility = View.INVISIBLE
+                        }
+                    } else {
+                        binding.tvReadMore.visibility = View.INVISIBLE
+                    }
+                }
+
+                if (currentPosition == 0) {
+                    binding.ivPrevious.visibility = View.GONE
+                } else {
+                    binding.ivPrevious.visibility = View.VISIBLE
+
+                }
+
+                if (currentPosition == generalKnowledgeList.size - 1) {
+                    binding.ivNext.visibility = View.GONE
+                } else {
+                    binding.ivNext.visibility = View.VISIBLE
+                }
+
+
+            }
+        })
+
+    }
+
+
     private fun setPersonalityAdapter(personalityList: ArrayList<PersonalityModel>) {
         binding.apply {
 
@@ -1052,6 +1348,62 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                     }
 
                     if (currentPosition == personalityList.size - 1) {
+                        binding.ivNext.visibility = View.GONE
+                    } else {
+                        binding.ivNext.visibility = View.VISIBLE
+                    }
+
+                }
+            }
+        })
+
+    }
+
+
+    private fun setMcqAdapter(mcqList: ArrayList<McqModel>) {
+        binding.apply {
+
+            mcqAdapter =
+                McqAdapter(mContext, mcqList, this@MainActivity)
+            rvMcq.adapter = mcqAdapter
+            mcqAdapter?.notifyDataSetChanged()
+        }
+
+
+
+
+        binding.rvMcq.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels)
+            }
+
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+
+
+
+                currentPosition = position
+
+
+
+                if (mcqList.size > 0) {
+                    binding.tvPrevious.visibility = View.GONE
+                    binding.tvNext.visibility = View.GONE
+                    binding.tvReadMore.visibility = View.GONE
+
+                    if (currentPosition == 0) {
+                        binding.ivPrevious.visibility = View.GONE
+                    } else {
+                        binding.ivPrevious.visibility = View.VISIBLE
+
+                    }
+
+                    if (currentPosition == mcqList.size - 1) {
                         binding.ivNext.visibility = View.GONE
                     } else {
                         binding.ivNext.visibility = View.VISIBLE
@@ -1322,6 +1674,18 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
                 )
                 setPersonalityData(pos, model)
             }
+            "generalknowledge"->{
+                firebaseAnalytics.logEvent(
+                    StaticData.generalknowledgeClicked, null
+                )
+                setGeneralKnowledgeData(pos, model)
+            }
+            "mcq"->{
+                firebaseAnalytics.logEvent(
+                    StaticData.mcqClicked, null
+                )
+                setMcqData(pos, model)
+            }
 
         }
     }
@@ -1408,11 +1772,68 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         builder.show()
     }
 
+    private fun setGeneralKnowledgeData(pos: Int, model: WallCategoryModel) {
+        binding.rvJob.visibility = View.GONE
+        binding.rvExam.visibility = View.GONE
+        binding.rvEvents.visibility = View.GONE
+        binding.rvGk.visibility = View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvPersonality.visibility = View.GONE
+        binding.tvNoDataFound.visibility = View.GONE
+        binding.rrNewBottom.visibility = View.GONE
+        currentPosition = 0
+        type = model.id
+        if (isNetworkAvailable(mContext)) {
+            gkViewModel.getGeneralKnowledgeData(
+                PrefManager(mContext).getvalue(StaticData.language,"English")
+            )
+        } else {
+            Toast.makeText(
+                mContext, getString(R.string.str_error_internet_connections),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        binding.adapter?.notifyDataSetChanged()
+
+    }
+
+
+    private fun setMcqData(pos: Int, model: WallCategoryModel) {
+        binding.rvJob.visibility = View.GONE
+        binding.rvExam.visibility = View.GONE
+        binding.rvEvents.visibility = View.GONE
+        binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
+        binding.rvPersonality.visibility = View.GONE
+        binding.tvNoDataFound.visibility = View.GONE
+        binding.rrNewBottom.visibility = View.GONE
+        currentPosition = 0
+        type = model.id
+        if (isNetworkAvailable(mContext)) {
+            mcqViewModel.getMcqData(
+                PrefManager(mContext).getvalue(StaticData.language,"English")
+            )
+        } else {
+            Toast.makeText(
+                mContext, getString(R.string.str_error_internet_connections),
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        binding.adapter?.notifyDataSetChanged()
+
+    }
+
+
     private fun setJobData(pos: Int, model: WallCategoryModel) {
         binding.rvJob.visibility = View.GONE
         binding.rvExam.visibility = View.GONE
         binding.rvEvents.visibility = View.GONE
         binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
         binding.rvPersonality.visibility = View.GONE
         binding.tvNoDataFound.visibility = View.GONE
         binding.rrNewBottom.visibility = View.GONE
@@ -1437,6 +1858,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         binding.rvExam.visibility = View.GONE
         binding.rvEvents.visibility = View.GONE
         binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
         binding.rvPersonality.visibility = View.GONE
         binding.tvNoDataFound.visibility = View.GONE
         binding.rrNewBottom.visibility = View.GONE
@@ -1461,6 +1884,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         binding.rvExam.visibility = View.GONE
         binding.rvEvents.visibility = View.GONE
         binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
         binding.rvPersonality.visibility = View.GONE
         binding.tvNoDataFound.visibility = View.GONE
         binding.rrNewBottom.visibility = View.GONE
@@ -1482,6 +1907,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         binding.rvExam.visibility = View.GONE
         binding.rvEvents.visibility = View.GONE
         binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
         binding.rvPersonality.visibility = View.GONE
         binding.tvNoDataFound.visibility = View.GONE
         binding.rrNewBottom.visibility = View.GONE
@@ -1503,6 +1930,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         binding.rvExam.visibility = View.GONE
         binding.rvEvents.visibility = View.GONE
         binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
         binding.tvNoDataFound.visibility = View.GONE
         binding.rrNewBottom.visibility = View.GONE
         currentPosition = 0
@@ -1524,6 +1953,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         binding.rvExam.visibility = View.GONE
         binding.rvEvents.visibility = View.GONE
         binding.rvGk.visibility = View.GONE
+        binding.rvMcq.visibility=View.GONE
+        binding.rvGeneralKnowlege.visibility = View.GONE
         binding.rvPersonality.visibility = View.GONE
         binding.tvNoDataFound.visibility = View.GONE
         binding.rrNewBottom.visibility = View.GONE
@@ -1556,7 +1987,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
         answer = "1"
         personalityPosition = position
-        Log.e("answerselected","1")
+        Log.e("answerselected", "1")
 
         //     binding.personalityAdapter?.notifyDataSetChanged()
         if (isNetworkAvailable(mContext)) {
@@ -1589,7 +2020,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
         answer = "2"
         personalityPosition = position
-        Log.e("answerselected","2")
+        Log.e("answerselected", "2")
 
         //      binding.personalityAdapter?.notifyDataSetChanged()
 
@@ -1622,7 +2053,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
         answer = "3"
         personalityPosition = position
-        Log.e("answerselected","3")
+        Log.e("answerselected", "3")
 
 //        binding.personalityAdapter?.notifyDataSetChanged()
 
@@ -1655,7 +2086,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
         answer = "4"
         personalityPosition = position
-        Log.e("answerselected","4")
+        Log.e("answerselected", "4")
 
         // binding.personalityAdapter?.notifyDataSetChanged()
 
@@ -1688,7 +2119,7 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
 
         answer = "5"
         personalityPosition = position
-        Log.e("answerselected","5")
+        Log.e("answerselected", "5")
         //      binding.personalityAdapter?.notifyDataSetChanged()
 
         if (isNetworkAvailable(mContext)) {

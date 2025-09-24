@@ -10,7 +10,7 @@ class StaticData {
         const val profileType = "profileType"
         const val profile_status = "profile_status"
         const val college_id = "college_id"
-        const val school_name="school_name"
+        const val school_name = "school_name"
         const val acc_token = "acc_token"
         const val registerModel = "registerModel"
 
@@ -26,6 +26,7 @@ class StaticData {
         const val yearId = "yearId"
         const val phoneNumber = "phoneNumber"
         const val jobModel = "jobModel"
+        const val language = "language"
 
         const val ABOUTUS = "https://lifeset.co.in/page/about-us"
         const val TERMSCONDITION = "https://lifeset.co.in/page/terms-and-condition"
@@ -46,6 +47,8 @@ class StaticData {
         const val govtexamsClicked = "govtExamClicked_Android"
         const val gkClicked = "gkClicked_Android"
         const val personalityClicked = "personalityClicked_Android"
+        const val generalknowledgeClicked = "generalknowledgeClicked_Android"
+        const val mcqClicked = "mcqClicked_Android"
         const val jobDetailsClicked = "jobDetailClicked_Android"
         const val examDetailsClicked = "examDetailsClicked_Android"
         const val jobApplyClicked = "jobApplyClicked_Android"
