@@ -319,7 +319,8 @@ interface ApiService {
 
     @GET("lifeset-wall/exams_data")
     suspend fun getExamData(
-        @Query("uid") uid: String
+        @Query("uid") uid: String,
+        @Query("langu")langu:String
     ): Response<ExamResponse>
 
     @GET("lifeset-wall/exam_detail")
@@ -332,7 +333,9 @@ interface ApiService {
     suspend fun getEventData(): Response<EventResponse>
 
     @GET("lifeset-wall/gk_data")
-    suspend fun getGKData(): Response<GKResponse>
+    suspend fun getGKData(
+        @Query("langu")language:String
+    ): Response<GKResponse>
 
     @GET("lifeset-wall/interested_post")
     suspend fun postInterested(

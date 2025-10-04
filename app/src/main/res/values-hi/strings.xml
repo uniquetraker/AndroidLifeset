@@ -12,6 +12,7 @@
     <string name="str_change_language">Change Language</string>
     <string name="str_previous">पहले का</string>
     <string name="str_next">अगला</string>
+    <string name="str_mcq">MCQ</string>
 
     <string name="str_submit">जमा करना</string>
     <string name="str_update_profile">प्रोफ़ाइल अपडेट करें</string>

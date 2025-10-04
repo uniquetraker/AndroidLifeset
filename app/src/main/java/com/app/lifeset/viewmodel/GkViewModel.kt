@@ -17,10 +17,10 @@ class GkViewModel @Inject constructor(val repositories: GKRepositories) : ViewMo
     val gkLiveData = MutableLiveData<GKResponse>()
     val generalKnowledgeLiveData = MutableLiveData<GeneralKnowledgeResponse>()
 
-    fun getGKData() {
+    fun getGKData(langu:String) {
         viewModelScope.launch {
             isLoading.postValue(true)
-            repositories.getGKData().let {
+            repositories.getGKData(langu).let {
                 if (it.body() != null) {
                     gkLiveData.postValue(it.body())
                     isLoading.postValue(false)

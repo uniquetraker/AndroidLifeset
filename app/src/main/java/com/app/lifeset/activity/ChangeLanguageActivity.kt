@@ -45,6 +45,24 @@ class ChangeLanguageActivity : AppCompatActivity() {
             ivBack.setOnClickListener {
                 finish()
             }
+            rbEnglish.setOnCheckedChangeListener { compoundButton, b ->
+                if (b){
+                    binding.rbEnglish.isChecked=true
+                    binding.rbHindi.isChecked=false
+                    language = "English"
+                }
+            }
+
+
+            rbHindi.setOnCheckedChangeListener { compoundButton, b ->
+                if (b){
+                    binding.rbEnglish.isChecked=false
+                    binding.rbHindi.isChecked=true
+                    language = "Hindi"
+                }
+            }
+
+
             llEnglish.setOnClickListener {
                 rbEnglish.isChecked = true
                 rbHindi.isChecked = false

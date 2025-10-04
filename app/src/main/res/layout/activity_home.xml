@@ -269,34 +269,6 @@
                             android:orientation="horizontal"
                             android:weightSum="4">
 
-                            <LinearLayout
-                                android:id="@+id/llDailyDigest"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="@dimen/_30sdp"
-                                    android:layout_height="@dimen/_30sdp"
-                                    android:adjustViewBounds="true"
-                                    android:contentDescription="@string/app_name"
-                                    android:scaleType="fitCenter"
-                                    android:src="@drawable/ic_homedailydigest" />
-
-                                <com.google.android.material.textview.MaterialTextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/_5sdp"
-                                    android:fontFamily="@font/inter_regular"
-                                    android:text="@string/str_daily_digest"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:textColor="@color/black"
-                                    android:textSize="@dimen/_10sdp" />
-
-                            </LinearLayout>
 
 
                             <LinearLayout
@@ -383,6 +355,36 @@
                                     android:gravity="center"
                                     android:fontFamily="@font/inter_regular"
                                     android:text="Know Yourself"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/_10sdp" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:id="@+id/llDailyDigest"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/_30sdp"
+                                    android:layout_height="@dimen/_30sdp"
+                                    android:adjustViewBounds="true"
+                                    android:contentDescription="@string/app_name"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/ic_mcq" />
+
+                                <com.google.android.material.textview.MaterialTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_5sdp"
+                                    android:fontFamily="@font/inter_regular"
+                                    android:text="@string/str_mcq"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/_10sdp" />
 

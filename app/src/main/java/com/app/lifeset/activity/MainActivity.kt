@@ -170,7 +170,9 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
             currentPosition = 0
             type = mainType
             if (isNetworkAvailable(mContext)) {
-                gkViewModel.getGKData()
+                gkViewModel.getGKData(
+                    PrefManager(mContext).getvalue(StaticData.language,"English")
+                )
             } else {
                 Toast.makeText(
                     mContext, getString(R.string.str_error_internet_connections),
@@ -191,7 +193,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
             currentPosition = 0
             type = mainType
             if (isNetworkAvailable(mContext)) {
-                examViewModel.getExamData(PrefManager(mContext).getvalue(StaticData.id).toString())
+                examViewModel.getExamData(PrefManager(mContext).getvalue(StaticData.id).toString(),
+                    PrefManager(mContext).getvalue(StaticData.language,"English"))
             } else {
                 Toast.makeText(
                     mContext, getString(R.string.str_error_internet_connections),
@@ -1892,7 +1895,8 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         currentPosition = 0
         type = model.id
         if (isNetworkAvailable(mContext)) {
-            examViewModel.getExamData(PrefManager(mContext).getvalue(StaticData.id).toString())
+            examViewModel.getExamData(PrefManager(mContext).getvalue(StaticData.id).toString(),
+                PrefManager(mContext).getvalue(StaticData.language,"English"))
         } else {
             Toast.makeText(
                 mContext, getString(R.string.str_error_internet_connections),
@@ -1937,7 +1941,9 @@ class MainActivity : AppCompatActivity(), WallCategoryAdapter.onItemClick,
         currentPosition = 0
         type = model.id
         if (isNetworkAvailable(mContext)) {
-            gkViewModel.getGKData()
+            gkViewModel.getGKData(
+                PrefManager(mContext).getvalue(StaticData.language,"English")
+            )
         } else {
             Toast.makeText(
                 mContext, getString(R.string.str_error_internet_connections),

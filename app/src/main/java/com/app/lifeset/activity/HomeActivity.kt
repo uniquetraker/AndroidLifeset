@@ -134,8 +134,8 @@ class HomeActivity : AppCompatActivity() {
             )
             startActivity(
                 Intent(mContext, MainActivity::class.java)
-                    .putExtra("mainType", "CA & GK")
-                    .putExtra("selectedPosition", 0)
+                    .putExtra("mainType", "mcq")
+                    .putExtra("selectedPosition", 7)
             )
 
         }

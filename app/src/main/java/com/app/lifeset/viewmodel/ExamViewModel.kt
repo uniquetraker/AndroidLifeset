@@ -19,10 +19,10 @@ class ExamViewModel @Inject constructor(val repositories: ExamRepositories) : Vi
     val postInterestedLiveData = MutableLiveData<BaseResponse>()
     val examDetailLiveData = MutableLiveData<ExamDetailResponse>()
 
-    fun getExamData(uid:String) {
+    fun getExamData(uid:String,langu:String) {
         viewModelScope.launch {
             isLoading.postValue(true)
-            repositories.getExam(uid).let {
+            repositories.getExam(uid,langu).let {
                 if (it.body() != null) {
                     examLiveData.postValue(it.body())
                     isLoading.postValue(false)

@@ -121,7 +121,7 @@
                             android:textSize="@dimen/_12sdp"
                             android:layout_marginStart="@dimen/_8sdp"
                             android:layout_marginTop="@dimen/_5sdp"
-                            android:fontFamily="@font/inter_bold"
+                            android:fontFamily="@font/inter_regular"
                             android:textColor="@color/black"/>
 
                         <View
@@ -144,7 +144,7 @@
                                 android:layout_marginStart="@dimen/_8sdp"
                                 android:layout_marginTop="@dimen/_3sdp"
                                 android:layout_marginEnd="@dimen/_8sdp"
-                                android:fontFamily="@font/inter_semibold"
+                                android:fontFamily="@font/inter_bold"
                                 android:text="@{model.title}"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_13sdp" />
@@ -153,7 +153,7 @@
                             <ImageView
                                 android:adjustViewBounds="true"
                                 android:contentDescription="@string/app_name"
-                                android:scaleType="centerCrop"
+                                android:scaleType="fitXY"
                                 android:id="@+id/ivImage"
                                 android:layout_margin="@dimen/_10sdp"
                                 android:layout_width="match_parent"
