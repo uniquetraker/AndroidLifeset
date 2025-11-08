@@ -27,6 +27,7 @@ import com.app.lifeset.model.InviteStudentResponse
 import com.app.lifeset.model.JobDetailResponse
 import com.app.lifeset.model.JobResponse
 import com.app.lifeset.model.LoginResponse
+import com.app.lifeset.model.McqRequest
 import com.app.lifeset.model.McqResponse
 import com.app.lifeset.model.NotificationResponse
 import com.app.lifeset.model.OtpResponse
@@ -39,6 +40,7 @@ import com.app.lifeset.model.ReferalResponse
 import com.app.lifeset.model.RegisterResponse
 import com.app.lifeset.model.SaveFreelancerDetailResponse
 import com.app.lifeset.model.SaveFreelancerRequest
+import com.app.lifeset.model.SaveMcqResponse
 import com.app.lifeset.model.SettingsDateResponse
 import com.app.lifeset.model.SkillsRequest
 import com.app.lifeset.model.StudentProfileResponse
@@ -384,6 +386,12 @@ interface ApiService {
 
     @GET("get_mcq_data")
     suspend fun getMcqData(
-        @Query("langu")langu:String
+        @Query("langu")langu:String,
+        @Query("uid") uid: String
     ):Response<McqResponse>
+
+    @POST("save-mcq-answer")
+    suspend fun saveMcqData(
+        @Body request: McqRequest
+    ): Response<SaveMcqResponse>
 }

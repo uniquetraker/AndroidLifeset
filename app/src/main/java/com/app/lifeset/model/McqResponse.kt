@@ -19,4 +19,5 @@ data class McqModel(
     val category_name: String? = "",
     val sub_category_name: String? = "",
     val section_name: String? = "",
+    var response: String? = ""
 )

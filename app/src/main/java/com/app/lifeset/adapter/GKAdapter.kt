@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.lifeset.activity.MainActivity
 import com.app.lifeset.databinding.AdpGkBinding
 import com.app.lifeset.extensions.createdDateFormat
+import com.app.lifeset.extensions.createdDateFormat1
 import com.app.lifeset.model.GKData
 import com.bumptech.glide.Glide
 import java.text.SimpleDateFormat
@@ -41,7 +42,7 @@ class GKAdapter(
         if (gkList[position].type.equals("GK")) {
             holder.binding.ivAdvertisement.visibility = View.GONE
             holder.binding.llMain.visibility = View.VISIBLE
-            holder.binding.tvDate.text = createdDateFormat(gkList[position].updated_at.toString())
+            holder.binding.tvDate.text = createdDateFormat1(gkList[position].updated_at.toString())
 
             if (!gkList[position].image.isNullOrEmpty()) {
                 holder.binding.ivImage.visibility = View.VISIBLE

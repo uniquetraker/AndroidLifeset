@@ -167,7 +167,7 @@ class MyProfileActivity : AppCompatActivity() {
                 intent.putExtra("gender", binding.tvGender.text.toString().trim())
                 intent.putExtra("category", binding.tvCaste.text.toString().trim())
                 intent.putExtra("religion", binding.tvReligion.text.toString().trim())
-                startActivityForResult(intent, 201)
+                skillActivityLauncher.launch(intent)
 
 
                 /*val httpIntent = Intent(Intent.ACTION_VIEW)
@@ -191,7 +191,7 @@ class MyProfileActivity : AppCompatActivity() {
                 intent.putExtra("year", studentProfileModel.year)
                 intent.putExtra("collageName", binding.tvCollageName.text.toString().trim())
                 intent.putExtra("courseName", studentProfileModel.course)
-                startActivityForResult(intent, 201)
+                skillActivityLauncher.launch(intent)
 
 
                 /*val httpIntent = Intent(Intent.ACTION_VIEW)
@@ -208,7 +208,7 @@ class MyProfileActivity : AppCompatActivity() {
                 intent.putExtra("village", binding.tvVillageValue.text.toString().trim())
                 intent.putExtra("address", binding.tvAddressValue.text.toString().trim())
                 intent.putExtra("pincode", binding.tvPinCodeValue.text.toString().trim())
-                startActivityForResult(intent, 201)
+                skillActivityLauncher.launch(intent)
 
             }
 
@@ -218,7 +218,8 @@ class MyProfileActivity : AppCompatActivity() {
                 intent.putExtra("prof_skills", binding.tvProffessionalSkill.text.toString().trim())
                 intent.putExtra("soft_skills", binding.tvSoftSkills.text.toString().trim())
                 intent.putExtra("hobbies", binding.tvInterestHobbies.text.toString().trim())
-                startActivityForResult(intent, 201)
+
+                skillActivityLauncher.launch(intent)
 
                 /*  val httpIntent = Intent(Intent.ACTION_VIEW)
                   httpIntent.data = Uri.parse("https://lifeset.co.in/student-profile-view")
@@ -270,6 +271,17 @@ class MyProfileActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    // Declare this at the top of your Activity (or Fragment)
+    private val skillActivityLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            viewModel.getStudentProfile(
+                PrefManager(mContext).getvalue(StaticData.id).toString()
+            )
+        }
     }
 
     private fun showImagePickerDialog() {
@@ -328,9 +340,9 @@ class MyProfileActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 201) {
             if (resultCode == Activity.RESULT_OK) {
-                viewModel.getStudentProfile(
+               /* viewModel.getStudentProfile(
                     PrefManager(mContext).getvalue(StaticData.id).toString()
-                )
+                )*/
             }
         } else if (resultCode == Activity.RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
             val resultUri = UCrop.getOutput(data!!)
@@ -626,23 +638,31 @@ class MyProfileActivity : AppCompatActivity() {
 
             if (!datas.tech_skills.isNullOrEmpty()) {
                 tvTechnicalSkills.text = datas.tech_skills
+            }else{
+                tvTechnicalSkills.text=""
             }
 
 
 
             if (!datas.prof_skills.isNullOrEmpty()) {
                 tvProffessionalSkill.text = datas.prof_skills
+            }else{
+                tvProffessionalSkill.setText("")
             }
 
 
 
             if (!datas.soft_skills.isNullOrEmpty()) {
                 tvSoftSkills.text = datas.soft_skills
+            }else{
+                tvSoftSkills.setText("")
             }
 
 
             if (!datas.hobbies.isNullOrEmpty()) {
                 tvInterestHobbies.text = datas.hobbies
+            }else{
+                tvInterestHobbies.setText("")
             }
 
             if (!datas.lang_know.isNullOrEmpty()) {

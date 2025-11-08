@@ -9,10 +9,12 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import com.app.lifeset.R
+import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.OffsetDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
+import java.util.Date
 import java.util.Locale
 
 fun isNetworkAvailable(context: Context): Boolean {
@@ -50,6 +52,19 @@ fun createdDateFormat(inputDate: String): String {
 
     val date = LocalDateTime.parse(correctedInput, inputFormatter)
     val formattedDate = date.format(outputFormatter)
+    return formattedDate
+
+}
+
+fun createdDateFormat1(inputDate: String): String {
+    // Input format from API
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+    // Desired output format
+    val outputFormat = SimpleDateFormat("dd MMMM yyyy", Locale.getDefault())
+
+    val date: Date? = inputFormat.parse(inputDate)
+    val formattedDate = if (date != null) outputFormat.format(date) else ""
+
     return formattedDate
 
 }

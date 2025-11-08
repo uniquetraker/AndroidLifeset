@@ -61,19 +61,16 @@ class SkillsActivity : AppCompatActivity() {
 
         binding.tvUpdateProfile.setOnClickListener {
             if (isNetworkAvailable(mContext)) {
-                if (isValidate()) {
-                    viewModel.getUpdateSkills(
-                        SkillsRequest(
-                            PrefManager(mContext).getvalue(StaticData.id).toString(),
-                            action = "skills",
-                            tech_skills = binding.edtTechnicalSkills.text.toString().trim(),
-                            prof_skills = binding.edtProffessionalSkills.text.toString().trim(),
-                            soft_skills = binding.edtSoftSkills.text.toString().trim(),
-                            hobbies = binding.edtHobbies.text.toString().trim()
-                        )
+                viewModel.getUpdateSkills(
+                    SkillsRequest(
+                        PrefManager(mContext).getvalue(StaticData.id).toString(),
+                        action = "skills",
+                        tech_skills = binding.edtTechnicalSkills.text.toString().trim(),
+                        prof_skills = binding.edtProffessionalSkills.text.toString().trim(),
+                        soft_skills = binding.edtSoftSkills.text.toString().trim(),
+                        hobbies = binding.edtHobbies.text.toString().trim()
                     )
-
-                }
+                )
             } else {
                 Toast.makeText(
                     mContext,
@@ -109,10 +106,10 @@ class SkillsActivity : AppCompatActivity() {
 
     private fun isValidate(): Boolean {
         var isValid = true
-        if (binding.edtTechnicalSkills.text.toString().trim().isEmpty()) {
+        /*if (binding.edtTechnicalSkills.text.toString().trim().isEmpty()) {
             Toast.makeText(mContext, "Please enter technical skills", Toast.LENGTH_SHORT).show()
             isValid = false
-        }/* else if (binding.edtProffessionalSkills.text.toString().trim().isEmpty()) {
+        }*//* else if (binding.edtProffessionalSkills.text.toString().trim().isEmpty()) {
             Toast.makeText(mContext, "Please enter proffessional skills", Toast.LENGTH_SHORT).show()
             isValid = false
         } else if (binding.edtSoftSkills.text.toString().trim().isEmpty()) {
